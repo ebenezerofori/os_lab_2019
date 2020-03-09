@@ -1,59 +1,16 @@
 #!/bin/bash
-# My first script
 
-#creating a variable
-title="Website title"
+echo 'Количество входных аргументов: ' $# #вывод количества входных аргументов
 
-#contants
-RIGHT_NOW=$(date +"%x %r %Z")
+#среднее арифмитическое входных аргументов.
+i=0
+sum=0
+for an_arg in "$@" ; do
+    sum=$(($sum + ${an_arg}))
+    i=$(($i+1))
+done
 
-##### FUNCTIONS
-system_info(){
-    echo "function system_info"
-    echo "--------------------------------------------------------"
-    echo "--------------------------------------------------------"
-}
-show_uptime(){
-    echo " <h2> uptime function </h2>"
-    echo "<pre>"
-    uptime
-    echo "</pre>"
-    echo "--------------------------------------------------------"
-    echo "--------------------------------------------------------"
-}
-home_space(){
-    echo "function home_space"
-    echo "<pre>"
-    du -s /home/* | sort -nr
-    echo "</pre>"
-    echo "--------------------------------------------------------"
-    echo "--------------------------------------------------------"
-}
-drive_space(){
-    echo " <h2> function drive_space </h2>"
-    echo "<pre>"
-    df
-    echo "</pre>"
-    echo "--------------------------------------------------------"
-    echo "--------------------------------------------------------"
-}
+echo 'Среднее арифмитическое входных аргументов: '
+expr $sum / $i
 
-### main
-cat << _EOF_
-<html>
-     <head>
-        <title>
-            $title
-        </title>
-    </head>
-    <body>
-        <h1> $title blandit aliquet elit $RIGHT_NOW </h1>
-        <p>
-            $(system_info)
-            $(show_uptime)
-            $(drive_space)
-            $(home_space)
-        </p>
-    </body>
- </html>
-_EOF_
+exit 0
