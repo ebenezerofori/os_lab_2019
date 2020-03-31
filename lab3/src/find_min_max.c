@@ -7,6 +7,7 @@ struct MinMax GetMinMax(int *array, unsigned int begin, unsigned int end) {
   min_max.min = INT_MAX;
   min_max.max = INT_MIN;
 
+///////////////my code
   printf("array: ");
 	for (int i = begin; i < end; i++)
 	{
@@ -19,6 +20,7 @@ struct MinMax GetMinMax(int *array, unsigned int begin, unsigned int end) {
 			min_max.max = array[i];
 	}
 	printf("\n");
+//////////////end
     
   return min_max;
 }
