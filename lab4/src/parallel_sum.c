@@ -2,6 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <ctype.h>
+#include <limits.h>
+#include <stdbool.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <getopt.h>
+
+#include <sys/time.h>
+#include <sys/types.h>
+
 #include <pthread.h>
 
 struct SumArgs {
